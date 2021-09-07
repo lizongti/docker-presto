@@ -50,13 +50,13 @@ services:
       - presto-conf:/opt/presto/etc
     ports:
       - 8080:8080
-  redis:
+  pika:
     image: pikadb/pika
     volumes:
-      - redis-data:/pika/db
-      - redis-conf:/pika/conf
+      - pika-data:/pika/db
+      - pika-conf:/pika/conf
     ports:
-      - 6379:6379
+      - 9221:9221
   superset:
     image: apache/superset
     volumes:
@@ -71,5 +71,5 @@ volumes:
   presto-conf:
   postgresql:
   superset:
-  redis-data:
-  redis-conf:
+  pika-data:
+  pika-conf:
