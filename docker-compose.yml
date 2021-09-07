@@ -54,6 +54,8 @@ services:
     image: tencentdbforkv/tendisplus
     volumes:
       - tendis:/data1/tendis/51002
+    environment:
+      - REDIS_PASSWORD=adminpass
     ports:
       - 51002:51002
   superset:
