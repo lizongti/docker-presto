@@ -56,7 +56,6 @@ services:
       - tendis:/data1/tendis/51002
     ports:
       - 51002:51002
-
   superset:
     image: apache/superset
     volumes:
