@@ -47,17 +47,16 @@ services:
     image: shawnzhu/prestodb:0.181
     volumes:
       - presto-data:/opt/presto/data
-      - presto-etc:/opt/presto/etc
+      - presto-conf:/opt/presto/etc
     ports:
       - 8080:8080
-  tendis:
-    image: tencentdbforkv/tendisplus:v2.3.5
+  redis:
+    image: pikadb/pika
     volumes:
-      - tendis:/data1/tendis/51002
-    environment:
-      - REDIS_PASSWORD=adminpass
+      - redis-data:/pika/db
+      - redis-conf:/pika/conf
     ports:
-      - 51002:51002
+      - 6379:6379
   superset:
     image: apache/superset
     volumes:
@@ -69,7 +68,8 @@ volumes:
   namenode:
   datanode:
   presto-data:
-  presto-etc:
+  presto-conf:
   postgresql:
   superset:
-  tendis:
+  redis-data:
+  redis-conf:
