@@ -51,7 +51,7 @@ services:
     ports:
       - 8080:8080
   tendis:
-    image: tencentdbforkv/tendisplus
+    image: tencentdbforkv/tendisplus:v2.3.5
     volumes:
       - tendis:/data1/tendis/51002
     environment:
