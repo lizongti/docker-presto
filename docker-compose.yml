@@ -44,10 +44,9 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql/data
   presto-coordinator:
-    image: shawnzhu/prestodb:0.181
+    image: ahanaio/prestodb-sandbox
     volumes:
-      - presto-data:/opt/presto/data
-      - presto-conf:/opt/presto/etc
+      - presto:/opt/presto-server/etc
     ports:
       - 8080:8080
   pika:
@@ -67,8 +66,7 @@ services:
 volumes:
   namenode:
   datanode:
-  presto-data:
-  presto-conf:
+  presto:
   postgresql:
   superset:
   pika-data:
