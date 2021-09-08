@@ -43,7 +43,7 @@ services:
     image: bde2020/hive-metastore-postgresql:2.3.0
     volumes:
       - postgresql:/var/lib/postgresql/data
-  presto-coordinator:
+  presto:
     image: ahanaio/prestodb-sandbox
     volumes:
       - presto:/opt/presto-server/etc
