@@ -11,19 +11,18 @@ services:
       - ./hadoop-hive.env
     ports:
       - 50070:50070
-      - 8020:8020
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     volumes:
       - datanode:/hadoop/dfs/data
     env_file:
       - ./hadoop-hive.env
+    depends_on:
+      - namenode
     environment:
       SERVICE_PRECONDITION: "namenode:50070"
     ports:
       - 50075:50075
-      - 50010:50010
-      - 50020:50020
   hive-server:
     image: bde2020/hive:2.3.2-postgresql-metastore
     env_file:
