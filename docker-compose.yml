@@ -64,7 +64,7 @@ services:
       - superset:/app/superset_home
     ports:
       - 8088:8088
-  schedule:
+  scheduler:
     image: lizongti/stock:scheduler
 
 volumes:
