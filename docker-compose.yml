@@ -58,6 +58,15 @@ services:
       - pika-conf:/pika/conf
     ports:
       - 9221:9221
+  postgres:
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: postgres
+      TZ: PRC
+    ports:
+      - 5432:5432
   superset:
     image: apache/superset
     volumes:
@@ -75,3 +84,4 @@ volumes:
   superset:
   pika-data:
   pika-conf:
+  postgres:
